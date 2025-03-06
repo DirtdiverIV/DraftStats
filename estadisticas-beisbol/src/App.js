@@ -26,7 +26,10 @@ function App() {
     setLoading(prev => ({ ...prev, [tipo]: true }));
     setError(prev => ({ ...prev, [tipo]: null }));
 
-    Papa.parse(rutaArchivo, {
+    const baseUrl = process.env.PUBLIC_URL || '';
+  const rutaCompleta = `${baseUrl}${rutaArchivo}`;
+
+    Papa.parse(rutaCompleta, {
       download: true,
       header: true,
       dynamicTyping: true,
