@@ -14,7 +14,7 @@ function App() {
   const [gridColumnApi, setGridColumnApi] = useState(null);
   const [loading, setLoading] = useState({ bateadores: true, pitchers: true });
   const [error, setError] = useState({ bateadores: null, pitchers: null });
-  const [pageSize, setPageSize] = useState(15);
+  const [pageSize, setPageSize] = useState(100);
 
   useEffect(() => {
     // Cargar los archivos CSV automáticamente al iniciar
@@ -205,7 +205,7 @@ function App() {
   return (
     <div className="app-container">
       <div className="header-container">
-        <h1>Estadísticas de Béisbol</h1>
+        <h1>Trampas de Manu</h1>
         
         <div className="tabs-section">
           <div className="tabs">
@@ -231,11 +231,11 @@ function App() {
             <div className="page-size-control">
               <label>Mostrar: </label>
               <select value={pageSize} onChange={(e) => onPageSizeChanged(e.target.value)}>
-                <option value="10">10</option>
-                <option value="15">15</option>
-                <option value="25">25</option>
-                <option value="50">50</option>
                 <option value="100">100</option>
+                <option value="500">500</option>
+                <option value="1000">1000</option>
+                <option value="2000">2000</option>
+                <option value="10000">10000</option>
               </select>
             </div>
             <button onClick={exportarCSV}>Exportar</button>
